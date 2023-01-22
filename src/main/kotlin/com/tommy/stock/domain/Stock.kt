@@ -4,6 +4,7 @@ import javax.persistence.Entity
 import javax.persistence.GeneratedValue
 import javax.persistence.GenerationType
 import javax.persistence.Id
+import javax.persistence.Version
 
 @Entity
 class Stock(
@@ -13,6 +14,9 @@ class Stock(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     val id: Long = 0L
+
+    @Version
+    var version: Long? = null
 
     fun decrease(quantity: Long) {
         if (this.quantity - quantity < 0) {
