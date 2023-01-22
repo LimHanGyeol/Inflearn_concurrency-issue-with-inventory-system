@@ -8,12 +8,19 @@ import javax.persistence.Id
 @Entity
 class Stock(
     val productId: Long,
-    val quantity: Long,
+    var quantity: Long,
 ) {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     val id: Long = 0L
 
+    fun decrease(quantity: Long) {
+        if (this.quantity - quantity < 0) {
+            throw RuntimeException("foo")
+        }
+
+        this.quantity = this.quantity - quantity
+    }
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
