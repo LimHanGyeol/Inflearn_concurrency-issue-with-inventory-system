@@ -5,6 +5,7 @@ import com.tommy.stock.repository.StockRepository
 import org.assertj.core.api.Assertions
 import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.BeforeEach
+import org.junit.jupiter.api.Disabled
 import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired
@@ -13,6 +14,7 @@ import org.springframework.data.repository.findByIdOrNull
 import java.util.concurrent.CountDownLatch
 import java.util.concurrent.Executors
 
+@Disabled("Local Mysql 을 사용하는 이유로 Disabled")
 @SpringBootTest
 class PessimisticLockStockServiceTest @Autowired constructor(
     private val pessimisticLockStockService: PessimisticLockStockService,

@@ -32,10 +32,10 @@ class StockServiceTest @Autowired constructor(
         stockRepository.save(stock)
 
         // Act
-        stockService.decrease(1L, 1L)
+        stockService.decrease(stock.id, 1L)
 
         // Assert
-        val actual = stockRepository.findByIdOrNull(1L) ?: throw RuntimeException()
+        val actual = stockRepository.findByIdOrNull(stock.id) ?: throw RuntimeException()
 
         assertThat(actual.quantity).isEqualTo(99L)
     }
